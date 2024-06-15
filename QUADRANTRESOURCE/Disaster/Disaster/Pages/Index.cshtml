@@ -1,0 +1,129 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+
+@*HERE IS THE FILES NAME*@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="https://static.vecteezy.com/system/resources/previews/011/173/336/original/house-restore-from-disaster-logo-template-home-fire-with-leaf-and-gear-icon-free-vector.jpg" alt="logo">
+        <h1 id="gradient">Disaster Companion</h1>
+        <script>var disastersByState = {
+                "Alabama": "Hurricanes",
+                "Alaska": "Earthquakes",
+                "Arizona": "Wildfires",
+                "Arkansas": "Tornadoes",
+                "California": "Wildfires",
+                "Colorado": "Wildfires",
+                "Connecticut": "Winter Storms",
+                "Delaware": "Hurricanes",
+                "Florida": "Hurricanes",
+                "Georgia": "Tornadoes",
+                "Hawaii": "Hurricanes",
+                "Idaho": "Wildfires",
+                "Illinois": "Tornadoes",
+                "Indiana": "Tornadoes",
+                "Iowa": "Tornadoes",
+                "Kansas": "Tornadoes",
+                "Kentucky": "Tornadoes",
+                "Louisiana": "Hurricanes",
+                "Maine": "Winter Storms",
+                "Maryland": "Hurricanes",
+                "Massachusetts": "Winter Storms",
+                "Michigan": "Winter Storms",
+                "Minnesota": "Winter Storms",
+                "Mississippi": "Hurricanes",
+                "Missouri": "Tornadoes",
+                "Montana": "Wildfires",
+                "Nebraska": "Tornadoes",
+                "Nevada": "Wildfires",
+                "New Hampshire": "Winter Storms",
+                "New Jersey": "Hurricanes",
+                "New Mexico": "Wildfires",
+                "New York": "Winter Storms",
+                "North Carolina": "Hurricanes",
+                "North Dakota": "Winter Storms",
+                "Ohio": "Tornadoes",
+                "Oklahoma": "Tornadoes",
+                "Oregon": "Wildfires",
+                "Pennsylvania": "Winter Storms",
+                "Rhode Island": "Hurricanes",
+                "South Carolina": "Hurricanes",
+                "South Dakota": "Winter Storms",
+                "Tennessee": "Tornadoes",
+                "Texas": "Hurricanes",
+                "Utah": "Wildfires",
+                "Vermont": "Winter Storms",
+                "Virginia": "Hurricanes",
+                "Washington": "Wildfires",
+                "West Virginia": "Winter Storms",
+                "Wisconsin": "Winter Storms",
+                "Wyoming": "Wildfires"
+            };
+
+            function result() {
+                var input = document.getElementById("location").value;
+                var state = input.trim(); // Clean up any extra spaces
+
+
+                if (disastersByState.hasOwnProperty(state)) {
+                    //disaster = disastersByState[state];
+                    //window.location.href = "/Result?state=" + encodeURIComponent(state);
+                    alert("The natural disaster for " + state + " is " + disastersByState[state]);
+
+
+
+                } else {
+                    alert("No data available for " + state);
+                }
+            }
+            
+        </script>
+    </header>
+
+    <nav>
+
+        <a asp-page="/Index">Home</a>
+        <a asp-page="/About">About</a>
+    </nav>
+
+    <main class="mainclass">
+        <p>
+            Enter your name and location to provide valuable data to emergency safety workers.
+        </p>
+        <div class="container">
+            <form class="top-form" method="POST" name="google-sheet">
+                <div class="option">
+                    <label for="name">Name: </label>
+                    <input id="name" type="text" name="Name" placeholder="Enter your name" required>
+                </div>
+                <div class="option">
+                    <label for="location">Location: </label>
+                    <input id="location" type="text" name="Location" placeholder="Enter location" required>
+                </div>
+                <div class="option">
+                    <button id="submitButton" type="submit" asp-page-handler="SubmitForm" onclick="result()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div class="map">
+            <img src="https://2.bp.blogspot.com/-IoqW8gweZB0/VxAU1XusyzI/AAAAAAAAAUE/4rJMcAJY4RIt0RJyyqIWK0Y2FM8WOPkrwCLcB/s1600/natural%2Bdisaster%2Bprobability.PNG" alt="disaster map">
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Disaster Companion. All rights reserved.</p>
+    </footer>
+</body>
+
+

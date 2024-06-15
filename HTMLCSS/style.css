@@ -1,0 +1,274 @@
+body,
+ul,
+li,
+h1,
+h2,
+a {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+}
+
+header {
+    background-color: red;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+
+}
+
+header h1 {
+    color: white;
+    border: 8px solid white;
+    /* left and right. top and bottom */
+    padding: 6px 12px;
+    display: inline-block;
+    border-radius: 36px;
+}
+
+.banner {
+    position: relative;
+}
+
+.banner img {
+    /*makes the image contained within the web browser. */
+    max-width: 100%;
+}
+
+.banner .welcome {
+    /* the welcome tag stays at the same spot even if the banner get smaller or larger. use percentages to contradict this */
+    background-color: #FEB614;
+    color: white;
+    position: absolute;
+    left: 0px;
+    top: 30%;
+    padding: 30px
+}
+
+.banner h2 {
+    font-size: 74px;
+}
+
+.banner span {
+    /* takes the value from the parent, and times it by 1.2 */
+    font-size: 1.3em;
+}
+
+nav {
+    background-color: #F4F4F4;
+    padding: 20px;
+    position: sticky;
+    top: 104px;
+
+}
+
+nav ul {
+    white-space: nowrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+nav li {
+    width: 25%;
+    display: inline-block;
+    font-size: 24px;
+}
+
+nav li a {
+    text-decoration: none;
+    color: #4B4B4B
+}
+
+nav li a.join {
+    color: #FEB614
+}
+
+main {
+    max-width: 100%;
+    width: 1200px;
+    margin: 80x auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+article h2 {
+    color: red;
+    font-size: 48px;
+}
+
+article p {
+    line-height: 2em;
+    color: #4B4B4B;
+}
+
+.images {
+    text-align: center;
+    margin: 80px 0;
+    white-space: nowrap;
+}
+
+.images li {
+    display: inline-block;
+    width: 40%;
+    margin: 20px 5%;
+}
+
+.images li img {
+    max-width: 100%;
+}
+
+section.join {
+    background-color: #F4F4F4;
+    text-align: center;
+    padding: 60px;
+    color: #4B4B4B
+}
+
+.join h2 {
+    font-size: 36px;
+}
+
+form input {
+    margin: 20px 0;
+    padding: 10px 20px;
+    font-size: 24px;
+    border-radius: 24px;
+    border: 4px solid white;
+}
+
+footer {
+    background-color: #FEB614;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/* Pseudo classes */
+
+nav li a:hover {
+    text-decoration: underline;
+}
+
+.images li:hover {
+    position: relative;
+    top: -4px;
+}
+
+form input:focus {
+    border: 4px dashed #4B4B4B;
+    outline: none;
+}
+
+form input:valid {
+    border: 4px solid #71d300
+}
+
+article p::first-line {
+    font-weight: bold;
+    font-size: 1.2em
+}
+
+section.join p::first-letter {
+    font-size: 1.5em;
+}
+
+
+section.join p::selection {
+    background-color: red;
+    color: white;
+}
+
+p::after {
+    content: "...";
+}
+
+
+/* responsive styles */
+
+@media screen and (max-width: 1400px) {
+
+    .banner .welcome {
+        font-size: 40px;
+    }
+
+}
+
+@media screen and (max-width: 960px) {
+
+    .banner .welcome {
+        font-size: 28px;
+    }
+
+    nav li {
+        font-size: 18px;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .banner .welcome {
+        font-size: 20px;
+        position: relative;
+        text-align: center;
+    }
+
+    .banner .welcome br {
+        display: none;
+    }
+
+    .banner .welcome span {
+        font-size: 1em;
+    }
+
+    nav li {
+        font-size: 18px;
+    }
+
+    .images li {
+        width: 100%;
+        display: block;
+        margin: 20px auto;
+    }
+
+}
+
+@media screen and (max-width: 560px) {
+
+    .banner .welcome {
+        font-size: 20px;
+        position: relative;
+        text-align: center;
+    }
+
+    .banner .welcome br {
+        display: none;
+    }
+
+    .banner .welcome span {
+        font-size: 1em;
+    }
+
+    nav li {
+        display: block;
+        width: 100%;
+        margin: 12px 0;
+    }
+
+    article h2 {
+        font-size: 36px;
+    }
+
+    header,
+    nav {
+        position: relative;
+        top: 0;
+    }
+
+
+}

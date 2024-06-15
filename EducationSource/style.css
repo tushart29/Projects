@@ -1,0 +1,47 @@
+body{
+    background-color: darkgrey;
+}
+ 
+ 
+ header {
+    background-color: blue;
+    height: 118px;
+         
+}
+nav{
+    background-color: red;
+    height: 110px;
+    
+}
+main{
+    background-color: orange;
+    height: 400px;
+    text-align: center;
+    padding-top: 80px;
+    padding-left: 240px;
+    padding-right: 240px;
+    
+
+}
+footer{
+    background-color: greenyellow;
+    height: 100px;
+    
+}
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+    
+}
+h1{
+    font-size: 84px;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+p{
+    font-size: 18px;
+    color: white;
+    font-family:Arial, Helvetica, sans-serif;
+}

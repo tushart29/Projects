@@ -1,0 +1,56 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Web.UI.HtmlControls;
+using System.Data;
+
+namespace SmartDrawer
+{
+    public partial class Workers_Info : System.Web.UI.Page
+    {
+        //Change the connection string here
+        //public static string conString = @"Data Source=SOULPICKER\SQLEXPRESS;Initial Catalog=SmartDrawer;Integrated Security=True;";
+        public static string conString = @"Server=tcp:disastersservers.database.windows.net,1433;Initial Catalog=disasterdatabase;Persist Security Info=False;User ID=disasterservers;Password=Microsoft123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+        SqlCommand cm;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+           
+           string sql = "Select * from smartlogin where UserName like'" + txtUser.Value + "'and Password like'" + txtPassword.Value + "'";
+
+            cm = new SqlCommand(sql, con);
+
+           var dr = cm.ExecuteReader();
+
+           if (dr.Read()) // Read() returns TRUE if there are records to read, or FALSE if there is nothing
+           {
+            
+              Response.Redirect("/AboutUS.html");
+          
+           
+           }
+           else
+           {
+               Response.Redirect("/AboutUS.html");
+           }
+         
+
+        
+        
+
+
+        }
+
+       
+    }
+}

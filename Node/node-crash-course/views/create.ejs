@@ -1,0 +1,25 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+            <!-- when we click submit, a post request will be sent to that url -->
+            <!-- use the name property to access data -->
+            <!-- we also want all the data and attach to body and access that on the server -->
+            <!-- use these properties to access that data -->
+            <div class="create-blog content">
+                <form action="/blogs" method="POST">
+                    <label for="title">Blog title:</label>
+                    <input type="text" id="title" name="title" required>
+                    <label for="snippet">Blog snippet:</label>
+                    <input type="text" id="snippet" name="snippet" required>
+                    <label for="body">Blog body:</label>
+                    <textarea id="body" required name="body"></textarea>
+                    <button>Submit</button>
+                </form>
+            </div>
+
+            <%- include("./partials/footer.ejs") %>
+    </body>
+
+</html>

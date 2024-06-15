@@ -1,0 +1,48 @@
+<html lang="en">
+<%- include("./partials/head.ejs") %>
+
+    <body>
+        <%- include("./partials/nav.ejs") %>
+
+            <div class="details content">
+                <h2>
+                    <%= blog.title %>
+                </h2>
+                <div class="content">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                </div>
+                <a class="delete" data-doc="<%= blog._id %>">delete</a>
+            </div>
+
+            <%- include("./partials/footer.ejs") %>
+
+                <script>
+                    // gonna run on the browser not on the server
+                    // grab that element
+                    // this sends ajax request: we cannot use a redirect, we have to send json or meta data back to browser
+                    const trashcan = document.querySelector('a.delete');
+
+                    // listens to the click of the button
+                    trashcan.addEventListener('cli ck', (e) => {
+                        // where to send the request to
+                        // the {} = the id 
+                        const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+                        // send to that specfic endpoint 
+                        fetch(endpoint, {
+                            method: 'DELETE',
+                        })
+                            // when it gets to the server we can handle it then
+                            // when response is sent to  us, we get json so we need to take json data which returns a promise 
+                            // and this goes into a actual javascript object 
+                            .then(response => response.json())
+                            .then(data => window.location.href = data.redirect)
+                            .catch(err => console.log(err));
+                    });
+
+                </script>
+    </body>
+
+</html>
