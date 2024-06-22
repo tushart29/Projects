@@ -1,0 +1,86 @@
+hello, this is a mern stack project
+
+Day 1:
+
+1: 
+
+- MERN: Mongo DB, Express, React (front end application), Node (back-end API to interact with from Front-End)
+- frontend: browswer, see the website, react application runs in browser and handles routing on browser
+- when we need auth or data to be shown, we send requests from front end to backend. backend is express app in node js environment
+- express is just a framework for node which lets us easily make APIs
+- Node and express handles requests and interacts with data and handles auth and protects certain APIs endpionts so certain users can access those certain websites
+- After database, will send response with data to browser, react will output in some template
+- we need node js and middlewhere since we dont want to expose sensative data . if we dont have this, we have to do it through react which can expose certain info like auth
+
+2:
+
+- start work with backend and to make AN API with express app using nodejs . helps us communicate with database and interact with frontend
+- folder for backend and front end code 
+- package.json file in backend folder allows us to keep track of depenencies and reigster own scripts . install express package
+- nodemon lets us save and automatically starts the server
+- store any constants like port number to environment variable so its hidden when we push to github repos 
+- you add the .env file to your .gitignore file so it wont get pushed up ****
+- to access these env variables, you need a node package called .env in terminal (npm install dotenv)
+- postman to try out different routes and requests such as post, delete
+- postman allows us to simulate different requests to our server. to test our routes for our api.
+- middlewhere: any code executes always getting a request to sending a response 
+to start app: npx nodemon app, npm run dev
+
+
+Day 2
+
+
+3: 
+
+GET /workouts -> gets all the workout documents
+POST /workouts -> creates a new workout documents
+GET /workout/:id -> gets a single documents
+DELETE /workout/:id -> deletes a single documents
+PATCH /workout/:id -> updates a single documents
+
+
+- different file to keep all routes in: routes folder in backend
+- if sending data to data, we can access through req object through middlehwere using express.json
+
+- mongodb: uses documents like json objects.
+- mongoose: ODM library, object data model. allows us to use methods to read/write database docs. allows us to design model and datastrcuture basicall like schema.
+
+
+Day 3:
+
+4: 
+
+- in postman used to interact with post requests. 
+- in postman, go to body section to send input in requests. 
+- dont need to create a collection before, you can just do it like in workout model which creates automatically
+
+
+5:
+
+- use contollers so you dont write much code in those api routes 
+- if id of the document error says string must be string of 12 bytes or something is being thrown by mongoose, 
+- you need to make sure the id is valid type of id or mongoose type of id
+
+
+Day 4:
+
+
+6: 
+- created API and all endpoints are working like post, delete, update, get
+
+7: 
+- browser router wraps everywhere we want to use routes,
+- routes wraps single router
+- indvidual route to create a single route 
+
+
+9:
+- fetching data from api to frontend
+- make sure to start server for both backend and frontend
+- we have 2 different servers for 1 backend and 1 for frontend. there are blocked fro security reasons. 
+- add a proxy field to front end json file to use 2 servers 
+
+
+- can update state locally when every state updates successfully - react hooks - (react context)
+- u dont want to fetch every time after submisstion since its just 1 document 
+- do the above so no need to refresh everytime to fetch data
